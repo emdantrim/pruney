@@ -1,12 +1,13 @@
 package main
 
 import (
-	"fmt"
 	"os"
 
 	"github.com/ChimeraCoder/anaconda"
 	"github.com/Sirupsen/logrus"
-	"github.com/codegangsta/cli"
+	//"golang.org/x/net/context"
+	pruney "github.com/emdantrim/pruney/pruney"
+	"gopkg.in/urfave/cli.v1"
 )
 
 func main() {
@@ -14,9 +15,13 @@ func main() {
 	app.Name = "pruneymcprunetweets"
 	app.Usage = "prunes yr unloved tweets"
 	app.Author = "emdantrim"
-	app.Action = goForthAndPrune
 
 	var consumerKey, consumerSecret, userKey, userSecret string
+	var actuallyPrune bool
+
+	logrus.SetFormatter(&logrus.TextFormatter{DisableColors: true})
+	logrus.Info("setting up pruney")
+
 	app.Flags = []cli.Flag{
 		cli.StringFlag{
 			Name:        "consumer-key",
@@ -42,17 +47,25 @@ func main() {
 			EnvVar:      "TWITTER_USER_SECRET",
 			Destination: &userSecret,
 		},
+		cli.BoolFlag{
+			Name:        "actually-prune",
+			Usage:       "actually prune tweets (opposite of dry-run)",
+			EnvVar:      "PRUNEY_ACTUALLY_PRUNE",
+			Destination: &actuallyPrune,
+		},
+	}
+
+	app.Action = func(c *cli.Context) {
+		goForthAndPrune(consumerKey, consumerSecret, userKey, userSecret)
 	}
 
 	app.Run(os.Args)
 }
 
-func goForthAndPrune(c *cli.Context) {
-	logrus.SetFormatter(&logrus.TextFormatter{DisableColors: true})
-	logrus.WithFields(logrus.Fields{"omg": "hi"}).Info("testy test")
+func goForthAndPrune(consumerKey, consumerSecret, userKey, userSecret string) {
 	anaconda.SetConsumerKey(consumerKey)
 	anaconda.SetConsumerSecret(consumerSecret)
 	api := anaconda.NewTwitterApi(userKey, userSecret)
 
-	fmt.Println("test")
+	pruney.PruneTweets(api, pruney.GetTweets(api))
 }
