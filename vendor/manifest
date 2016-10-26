@@ -1,0 +1,60 @@
+{
+	"version": 0,
+	"dependencies": [
+		{
+			"importpath": "github.com/BurntSushi/toml",
+			"repository": "https://github.com/BurntSushi/toml",
+			"revision": "99064174e013895bbd9b025c31100bd1d9b590ca",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/ChimeraCoder/anaconda",
+			"repository": "https://github.com/ChimeraCoder/anaconda",
+			"revision": "00ecb7b4510497dc28cd46a598007ab8fe01f889",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/ChimeraCoder/tokenbucket",
+			"repository": "https://github.com/ChimeraCoder/tokenbucket",
+			"revision": "c5a927568de7aad8a58127d80bcd36ca4e71e454",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/azr/backoff",
+			"repository": "https://github.com/azr/backoff",
+			"revision": "53511d3c733003985b0b76f733df1f4d0095ee6a",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/dustin/go-jsonpointer",
+			"repository": "https://github.com/dustin/go-jsonpointer",
+			"revision": "ba0abeacc3dcca5b9b20f31509c46794edbc9965",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/dustin/gojson",
+			"repository": "https://github.com/dustin/gojson",
+			"revision": "2e71ec9dd5adce3b168cd0dbde03b5cc04951c30",
+			"branch": "master"
+		},
+		{
+			"importpath": "github.com/garyburd/go-oauth/oauth",
+			"repository": "https://github.com/garyburd/go-oauth",
+			"revision": "719b069913e1151a73ea30d2ea4f90deda3ce234",
+			"branch": "master",
+			"path": "/oauth"
+		},
+		{
+			"importpath": "github.com/urfave/cli",
+			"repository": "https://github.com/urfave/cli",
+			"revision": "33bb4c121333cd8eb7d8cc8d74474f4ec156f371",
+			"branch": "master"
+		},
+		{
+			"importpath": "gopkg.in/urfave/cli.v1",
+			"repository": "https://gopkg.in/urfave/cli.v1",
+			"revision": "a14d7d367bc02b1f57d88de97926727f2d936387",
+			"branch": "master"
+		}
+	]
+}
