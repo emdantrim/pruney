@@ -3,6 +3,7 @@ package tweets
 import (
 	"github.com/ChimeraCoder/anaconda"
 	"github.com/Sirupsen/logrus"
+	_ "github.com/mattn/go-sqlite3"
 )
 
 //GetTweets does the thing
