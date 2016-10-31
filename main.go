@@ -16,7 +16,7 @@ func main() {
 	app.Usage = "prunes yr unloved tweets"
 	app.Author = "emdantrim"
 
-	var consumerKey, consumerSecret, userKey, userSecret string
+	var consumerKey, consumerSecret, userKey, userSecret, dbFile string
 	var actuallyPrune bool
 
 	logrus.SetFormatter(&logrus.TextFormatter{DisableColors: true})
@@ -46,6 +46,12 @@ func main() {
 			Usage:       "API User Secret",
 			EnvVar:      "TWITTER_USER_SECRET",
 			Destination: &userSecret,
+		},
+		cli.StringFlag{
+			Name:        "db-file",
+			Usage:       "SQLite3 database file location",
+			EnvVar:      "PRUNEY_DB_FILE",
+			Destination: &dbFile,
 		},
 		cli.BoolFlag{
 			Name:        "actually-prune",

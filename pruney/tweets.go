@@ -20,7 +20,7 @@ func GetTweets(api *anaconda.TwitterApi) []anaconda.Tweet {
 				"created":  tweet.CreatedAt,
 				"retweets": tweet.RetweetCount,
 				"favs":     tweet.FavoriteCount,
-			}).Info("found tweet")
+			}).Info("retrieved tweet")
 		}
 	}
 	return result.Statuses
